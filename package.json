@@ -1,0 +1,19 @@
+{
+  "name": "com.bigicegames.big.unity.sonity",
+  "version": "1.0.0",
+  "displayName": "BIG.Unity.Sonity",
+  "description": "Ready-to-use SoundManager with volume control and microphone handling for the BIG ecosystem. REQUIRES BIG.Unity plus the commercial Sonity and Odin Inspector assets (not redistributed - you must own and import them).",
+  "unity": "2022.3",
+  "license": "MIT",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  },
+  "author": {
+    "name": "BigIceGames"
+  },
+  "keywords": [
+    "big",
+    "audio",
+    "sonity"
+  ]
+}

@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6922318924216675897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243105320690887098}
+  - component: {fileID: 1943181784395211528}
+  - component: {fileID: 764873451744946378}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1243105320690887098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922318924216675897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1943181784395211528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922318924216675897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653cb79c91efd4343943917b35d4e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: BIG.Unity.Sonity::BIG.Unity.Sonity.SoundManager
+  _sonitySoundManager: {fileID: 764873451744946378}
+  _audioMixer: {fileID: 24100000, guid: af3155ffafad4c64cb30b675cd4f34ab, type: 2}
+  _enableSnapshot: {fileID: 24500006, guid: af3155ffafad4c64cb30b675cd4f34ab, type: 2}
+  _disableSnapshot: {fileID: 6606113302064562748, guid: af3155ffafad4c64cb30b675cd4f34ab, type: 2}
+--- !u!114 &764873451744946378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922318924216675897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d735f3e75ea19614b84757e8e6a5c2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundManager
+  internals:
+    settings:
+      settingExpandBase: 1
+      settingsExpandAdvanced: 0
+      disablePlayingSounds: 0
+      asyncStartup: 0
+      soundManagerManualUpdate: 0
+      playOneShotOptimization: 0
+      steamAudioIntegrationEnable: 0
+      steamAudioSpatializeEnabledDefault: 1
+      soundEventLibraryEnable: 0
+      entitySoundBaseEnable: 0
+      entitySoundLibraryEnable: 0
+      playmakerIntegrationEnable: 0
+      soundTimeScale: 0
+      globalPause: 0
+      globalVolumeRatio: 1
+      globalVolumeDecibel: 0
+      volumeIncreaseEnable: 0
+      dontDestroyOnLoad: 1
+      debugWarnings: 1
+      debugInPlayMode: 1
+      guiWarnings: 1
+      addressableAudioMixerUse: 0
+      addressableAudioMixerAsyncLoadInEditor: 0
+      globalSoundTag: {fileID: 0}
+      globalSoundTags:
+      - {fileID: 0}
+      globalSoundTagsExpanded: 1
+      distanceScale: 1
+      overrideListenerDistance: 0
+      overrideListenerDistanceAmount: 100
+      speedOfSoundEnabled: 0
+      speedOfSoundScale: 1
+      voicePreload: 32
+      voiceLimit: 32
+      voiceStopTime: 5
+      voiceEffectLimit: 32
+      voiceEffectDisable: 0
+    editorTools:
+      editorToolExpand: 1
+      editorToolSelectionHistoryEnable: 0
+      editorToolReferenceFinderEnable: 0
+      editorToolSelectSameTypeEnable: 0
+    debug:
+      debugExpand: 1
+      forceDebug: 0
+      logSoundEventsEnabled: 0
+      logSoundEventsLogType: 0
+      logSoundEventsSelectObject: 0
+      logSoundEventsPlay: 1
+      logSoundEventsStop: 0
+      logSoundEventsPool: 0
+      logSoundEventsPause: 0
+      logSoundEventsUnpause: 0
+      logSoundEventsGlobalPause: 0
+      logSoundEventsGlobalUnpause: 0
+      logSoundEventsSoundParametersOnce: 0
+      logSoundEventsSoundParametersContinuous: 0
+      drawSoundEventsInSceneViewEnabled: 0
+      drawSoundEventsInGameViewEnabled: 0
+      drawSoundEventsHideIfCloserThan: 0.01
+      drawSoundEventsFontSize: 16
+      drawSoundEventsVolumeToOpacity: 0.5
+      drawSoundEventsLifetimeToOpacity: 0.75
+      drawSoundEventsLifetimeFadeLength: 1
+      drawSoundEventsColorStart: {r: 1, g: 0.705, b: 0, a: 1}
+      drawSoundEventsColorEnd: {r: 1, g: 0, b: 0.2550001, a: 1}
+      drawSoundEventsColorOutline: {r: 0, g: 0, b: 0, a: 1}
+    statistics:
+      instancesInfo: []
+      statisticsExpandMain: 0
+      statisticsExpandGeneral: 1
+      statisticsExpandInstances: 1
+      statisticsSorting: 1
+      statisticsInfoActive: 1
+      statisticsInfoVoices: 1
+      statisticsInfoVolume: 1
+      statisticsInfoPlays: 1
+      statisticsFilterShowActive: 1
+      statisticsFilterShowInactive: 0

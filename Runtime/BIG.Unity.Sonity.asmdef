@@ -1,0 +1,19 @@
+{
+    "name": "BIG.Unity.Sonity",
+    "rootNamespace": "",
+    "references": [
+        "GUID:eddc24eca6301ba4193fbddf2fc974a5",
+        "GUID:7587e79dba767974180aaa071919b937",
+        "GUID:33aa11d810f129144a87b60052d2fe7f",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
