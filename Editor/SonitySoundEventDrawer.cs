@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Linq;
 using System.Reflection;
 using Sirenix.OdinInspector.Editor;
@@ -200,3 +201,4 @@ namespace BIG.Unity.Sonity.Editor
                 .FirstOrDefault(x => x != null);
     }
 }
+#endif
