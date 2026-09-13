@@ -9,8 +9,10 @@ namespace BIG.Unity.Sonity
         public string Name => "Sound";
         public static UserDataKey MusicVolume => new UserDataKey("MusicVolume");
         public static UserDataKey EffectsVolume => new UserDataKey("EffectsVolume");
+        public static UserDataKey UIVolume => new UserDataKey("UIVolume");
         public static UserDataKey MusicEnabled => new UserDataKey("MusicEnabled");
         public static UserDataKey EffectsEnabled => new UserDataKey("EffectsEnabled");
+        public static UserDataKey UIVolumeEnabled => new UserDataKey("UIVolumeEnabled");
         public static UserDataKey VoiceEnabled => new UserDataKey("VoiceEnabled");
         public static UserDataKey VoiceVolume => new UserDataKey("VoiceVolume");
         public static UserDataKey MicrophoneState => new UserDataKey("MicrophoneState");
@@ -31,15 +33,19 @@ namespace BIG.Unity.Sonity
         private bool _musicEnabled;
         private bool _effectsEnabled;
         private bool _voiceEnabled;
+        private bool _uiEnabled;
         private float _musicVolume;
         private float _effectsVolume;
         private float _voiceVolume;
+        private float _uiVolume;
         public static float MusicVolume => _instance._musicEnabled ? _instance._musicVolume : 0;
         public static float EffectsVolume => _instance._effectsEnabled ? _instance._effectsVolume : 0;
         public static float VoiceVolume => _instance._voiceEnabled ? _instance._voiceVolume : 0;
+        public static float UIVolume => _instance._uiEnabled ? _instance._uiVolume : 0;
         public static bool MusicActive => _instance._musicEnabled;
         public static bool EffectsActive => _instance._effectsEnabled;
         public static bool VoiceActive => _instance._voiceEnabled;
+        public static bool UIActive => _instance._uiEnabled;
 
         protected override void Awake()
         {
@@ -59,6 +65,7 @@ namespace BIG.Unity.Sonity
         {
             _instance._musicVolume = _userData.GetFloat(SoundUserDataKeysProvider.MusicVolume, 1f);
             _instance._effectsVolume = _userData.GetFloat(SoundUserDataKeysProvider.EffectsVolume, 1f);
+            _instance._uiVolume = _userData.GetFloat(SoundUserDataKeysProvider.UIVolume, 1f);
             _instance._voiceVolume = _userData.GetFloat(SoundUserDataKeysProvider.VoiceVolume, 1f);
 
             _instance._musicEnabled = _userData.GetBool(SoundUserDataKeysProvider.MusicEnabled, true);
@@ -100,6 +107,13 @@ namespace BIG.Unity.Sonity
             RefreshEffects(EffectsVolume, false);
         }
 
+        public static void UISetActive(bool value)
+        {
+            _instance._uiEnabled = value;
+            _instance._userData.Set(SoundUserDataKeysProvider.UIVolumeEnabled, value);
+            RefreshEffects(UIVolume, false);
+        }
+
         public static void VoiceSetActive(bool value)
         {
             _instance._voiceEnabled = value;
@@ -111,6 +125,12 @@ namespace BIG.Unity.Sonity
         {
             RefreshMusic(volume, true);
             _instance._userData.Set(SoundUserDataKeysProvider.MusicVolume, volume);
+        }
+
+        public static void SetUIVolume(float volume)
+        {
+            RefreshUI(volume, true);
+            _instance._userData.Set(SoundUserDataKeysProvider.UIVolume, volume);
         }
 
         public static void SetEffectsVolume(float volume)
@@ -131,6 +151,15 @@ namespace BIG.Unity.Sonity
             _instance._audioMixer.SetFloat("music", mixerValue);
             if (saveValue)
                 _instance._musicVolume = value;
+
+        }
+
+        private static void RefreshUI(float value, bool saveValue)
+        {
+            var mixerValue = value > 0 ? (Mathf.Log10(value) * SOUND_LOG_MULTIPLIER) : -80;
+            _instance._audioMixer.SetFloat("ui", mixerValue);
+            if (saveValue)
+                _instance._uiVolume = value;
         }
 
         private static void RefreshEffects(float value, bool saveValue)
