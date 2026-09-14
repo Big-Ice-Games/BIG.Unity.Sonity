@@ -71,11 +71,14 @@ namespace BIG.Unity.Sonity
             _instance._musicEnabled = _userData.GetBool(SoundUserDataKeysProvider.MusicEnabled, true);
             _instance._effectsEnabled = _userData.GetBool(SoundUserDataKeysProvider.EffectsEnabled, true);
             _instance._voiceEnabled = _userData.GetBool(SoundUserDataKeysProvider.VoiceEnabled, true);
+            _instance._uiEnabled = _userData.GetBool(SoundUserDataKeysProvider.UIVolumeEnabled, true);
             Audio.MicrophoneState = _userData.GetEnum(SoundUserDataKeysProvider.MicrophoneState, MicrophoneSettingsState.Enable);
 
-            RefreshMusic(_instance._musicVolume, false);
-            RefreshEffects(_instance._effectsVolume, false);
-            RefreshVoice(_instance._voiceVolume, false);
+            // Gated properties, not raw fields — a disabled channel must start muted.
+            RefreshMusic(MusicVolume, false);
+            RefreshEffects(EffectsVolume, false);
+            RefreshVoice(VoiceVolume, false);
+            RefreshUI(UIVolume, false);
         }
 
         public static void PlayMusic(SoundEvent soundEvent)
@@ -111,7 +114,7 @@ namespace BIG.Unity.Sonity
         {
             _instance._uiEnabled = value;
             _instance._userData.Set(SoundUserDataKeysProvider.UIVolumeEnabled, value);
-            RefreshEffects(UIVolume, false);
+            RefreshUI(UIVolume, false);
         }
 
         public static void VoiceSetActive(bool value)
